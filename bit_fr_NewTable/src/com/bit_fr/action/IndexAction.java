@@ -27,7 +27,7 @@ public class IndexAction implements ShopAction {
 
 		String category = request.getParameter("category");
 		String quality = request.getParameter("quality");
-		String sql = "select * from (select product_id, condition, product_name, category, quality, price, main_img, rownum e from (select product_id, product_name, condition, main_img, category, quality, price from product where condition='물품게시'";
+		String sql = "select * from (select product_id, condition, product_name, category, quality, price, main_img, sub_img, member_id ,rownum e from (select product_id, condition, product_name, category, quality, price, main_img, sub_img, member_id from product where condition='물품게시'";
 
 		if (request.getParameter("min") != null && Integer.parseInt(request.getParameter("min")) != 0) {
 			min = Integer.parseInt(request.getParameter("min"));
@@ -54,6 +54,8 @@ public class IndexAction implements ShopAction {
 		sql += "where e>=" + startNum + " and e<=" + endNum;
 		list = dao.customizeProduct(sql);
 
+		System.out.println(sql);	
+		
 		request.setAttribute("list", list);
 		request.setAttribute("category", category);
 		request.setAttribute("min", min);

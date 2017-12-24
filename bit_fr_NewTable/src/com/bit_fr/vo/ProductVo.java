@@ -81,6 +81,12 @@ public class ProductVo {
 	
 	
 	//Constructor
+	
+	
+	public ProductVo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public ProductVo(int product_id, String condition, String product_name, String category, String quality, int price,
 			String main_img, String sub_img, String member_id, int rownum) {
 		super();
@@ -94,26 +100,6 @@ public class ProductVo {
 		this.sub_img = sub_img;
 		this.member_id = member_id;
 		this.rownum = rownum;
-	}
-	
-
-	public ProductVo(int product_id, String condition, String product_name, String category, String quality, int price,
-			String main_img, int rownum) {
-		super();
-		this.product_id = product_id;
-		this.condition = condition;
-		this.product_name = product_name;
-		this.category = category;
-		this.quality = quality;
-		this.price = price;
-		this.main_img = main_img;
-		this.rownum = rownum;
-	}
-	
-	
-	public ProductVo() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	
