@@ -54,8 +54,8 @@ public class IndexAction implements ShopAction {
 		sql += "where e>=" + startNum + " and e<=" + endNum;
 		list = dao.customizeProduct(sql);
 
-		System.out.println(sql);	
-		
+		System.out.println(sql);
+
 		request.setAttribute("list", list);
 		request.setAttribute("category", category);
 		request.setAttribute("min", min);

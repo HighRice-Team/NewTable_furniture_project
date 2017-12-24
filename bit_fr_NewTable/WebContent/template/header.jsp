@@ -15,13 +15,14 @@ a {
 	cursor: pointer;
 }
 </style>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.0.min.js"></script>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.7.0.min.js"></script>
 <script type="text/javascript">
-	$(function(){
-		$("#login").click(function(){
-		     $("#loginDialog").dialog("open");
-	   	})
-     
+	$(function() {
+		$("#login").click(function() {
+			$("#loginDialog").dialog("open");
+		})
+
 	})
 </script>
 <title>Insert title here</title>
@@ -30,7 +31,7 @@ a {
 	<div style="margin: 0 15% 0 15%; padding: 40px 0 40px 0;">
 		<div style="width: 40%; float: left;">
 			<a href="main.jsp"><img src="img/logo.png"
-				style="width:100%; height: 100px;" id="logoImg"></a>
+				style="width: 100%; height: 100px;" id="logoImg"></a>
 		</div>
 		<div style="width: 60%; float: right; text-align: left; color: white;">
 			<div style="width: 20%; float: right;">
@@ -53,10 +54,9 @@ a {
 					class="chk_login" value="cartList.do">CART</a><br>
 			</div>
 			<div style="width: 20%; float: right;">
-				<a class="chk_login" value="sellList.do">SELL</a><br>
-				<br> <a href="aboutUs.do">ABOUT US</a><br> <a
-					href="faq.do">FAQ</a><br> <a class="chk_login"
-					value="listQna.do">QNA</a><br>
+				<a class="chk_login" value="sellList.do">SELL</a><br> <br>
+				<a href="aboutUs.do">ABOUT US</a><br> <a href="faq.do">FAQ</a><br>
+				<a class="chk_login" value="listQna.do">QNA</a><br>
 			</div>
 			<div style="width: 20%; float: right;">
 				<a href="customize.do">CUSTMIZE</a><br> <a
