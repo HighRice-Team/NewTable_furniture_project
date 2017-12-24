@@ -35,21 +35,20 @@ public class ShopController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		
+
 		try {
-				//properties의 실 경로를 찾아, 파일을 읽어오고, 내용을 key value로 나누어 HashMap에 담고, 요청이 들어올 때마다 이를 참조한다.
-			
+			// properties의 실 경로를 찾아, 파일을 읽어오고, 내용을 key value로 나누어 HashMap에 담고, 요청이 들어올 때마다
+			// 이를 참조한다.
+
 			String path = config.getServletContext().getRealPath("/WEB-INF");
 			FileInputStream fis = new FileInputStream(path + "/bit_fr.properties");
 			Properties prop = new Properties();
 			prop.load(fis);
 			Iterator iter = prop.keySet().iterator();
-			
-			
-				//properties의 객체 수 만큼 루프를 돌아가며 HashMap에 추가한다.
-			
-			while (iter.hasNext())
-			{
+
+			// properties의 객체 수 만큼 루프를 돌아가며 HashMap에 추가한다.
+
+			while (iter.hasNext()) {
 				String key = (String) iter.next();
 				String className = prop.getProperty(key);
 				map.put(key, (ShopAction) Class.forName(className).newInstance());
@@ -81,7 +80,7 @@ public class ShopController extends HttpServlet {
 
 	private void proRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		String uri = request.getRequestURI();
 		String cmd = uri.substring(uri.lastIndexOf("/") + 1);
 		ShopAction action = map.get(cmd);
