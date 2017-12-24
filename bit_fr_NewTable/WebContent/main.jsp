@@ -14,7 +14,7 @@ html, body {
 	padding: 0px;
 }
 </style>
-<title>Insert title here</title>
+<title>BIT FR</title>
 
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.0.min.js"></script>

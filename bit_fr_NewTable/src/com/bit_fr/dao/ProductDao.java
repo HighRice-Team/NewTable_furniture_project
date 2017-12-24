@@ -23,12 +23,13 @@ public class ProductDao {
 	}
 	
 	
-	// 매개변수로 SQL을 받아와 그 에 맞는 List를 반환한다.
+	// 질의문을 매개변수로 받아 해당 LIST를 반환.
 	public ArrayList<ProductVo>	customizeProduct(String sql)
 	{
 		ArrayList<ProductVo> list = new ArrayList<ProductVo>();
 		
 		try {
+			System.out.println(sql);
 			
 			Connection conn = ConnectionProvider.getConnection();
 			Statement stmt = conn.createStatement();
@@ -36,7 +37,7 @@ public class ProductDao {
 			
 			while(rs.next())
 			{
-				list.add(new ProductVo(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getString(7),rs.getInt(8)));
+				list.add(new ProductVo(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getInt(10)));
 			}
 			
 			ConnectionProvider.close(conn, stmt, rs);
