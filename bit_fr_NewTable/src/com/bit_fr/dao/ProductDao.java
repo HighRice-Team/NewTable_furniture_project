@@ -27,7 +27,6 @@ public class ProductDao {
 		ArrayList<ProductVo> list = new ArrayList<ProductVo>();
 
 		try {
-			System.out.println(sql);
 
 			Connection conn = ConnectionProvider.getConnection();
 			Statement stmt = conn.createStatement();
