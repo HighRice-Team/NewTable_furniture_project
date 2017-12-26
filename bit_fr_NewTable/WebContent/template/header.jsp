@@ -19,10 +19,22 @@ a {
 	src="https://code.jquery.com/jquery-1.7.0.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$("#login").click(function() {
+		var url2
+		$("#login").click(function() { //footer.jsp에 있는 loginDialog를 활성화한다.
 			$("#loginDialog").dialog("open");
 		})
 
+		$("#header_logout").click(function() { //session의 있는 값 들을 모두 제거.
+			if (confirm("로그아웃 하시겠습니까?")) {
+				$.ajax({
+					url : "ajax/login/logoutAjax.jsp",
+					success : function() {
+						location.href = "";
+					}
+
+				})
+			}
+		})
 	})
 </script>
 <title>Insert title here</title>
@@ -35,28 +47,33 @@ a {
 		</div>
 		<div style="width: 60%; float: right; text-align: left; color: white;">
 			<div style="width: 20%; float: right;">
+
 				<c:if test="${sessionScope.id==null}">
-					<a id="login">LOGIN</a>
+					<a id="login" value="login">LOGIN</a>
 					<br>
 				</c:if>
+
 				<c:if test="${sessionScope.id!=null}">
-					<a onclick="logout()">LOGOUT</a>
+					<a id="header_logout">LOGOUT</a>
 					<br>
 				</c:if>
+
 				<c:if test="${sessionScope.id!=null}">
 					<br>
 				</c:if>
+
 				<c:if test="${sessionScope.id==null}">
 					<a href="join.do">JOIN</a>
 					<br>
 				</c:if>
-				<a class="chk_login" value="myPage.do">MYPAGE</a><br> <a
-					class="chk_login" value="cartList.do">CART</a><br>
+				<a>MYPAGE</a><br> <a>CART</a><br>
+				<c:if test="${sessionScope.grade=='관리자' }">
+					<a href="">ADMIN</a>
+				</c:if>
 			</div>
 			<div style="width: 20%; float: right;">
-				<a class="chk_login" value="sellList.do">SELL</a><br> <br>
-				<a href="aboutUs.do">ABOUT US</a><br> <a href="faq.do">FAQ</a><br>
-				<a class="chk_login" value="listQna.do">QNA</a><br>
+				<a>SELL</a><br> <br> <a href="aboutUs.do">ABOUT US</a><br>
+				<a href="faq.do">FAQ</a><br> <a>QNA</a><br>
 			</div>
 			<div style="width: 20%; float: right;">
 				<a href="customize.do">CUSTMIZE</a><br> <a

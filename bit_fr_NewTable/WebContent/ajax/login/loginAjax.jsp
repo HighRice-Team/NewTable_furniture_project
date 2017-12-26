@@ -22,8 +22,12 @@
 			if (!compare) { //비밀번호가 일치하지 않는 경우.
 				str = "비밀번호가 일치하지 않습니다.";
 			} else { //비밀번호가 일치하는 경우.
+
+				String grade = v.getGrade();
+
 				session.setAttribute("id", member_id);
 				session.setAttribute("pwd", pwd);
+				session.setAttribute("grade", grade);
 			}
 		} else { // 입력받은 member_id가 DB에 존재하지 않을 경우.					
 			str = "아이디가 존재하지 않습니다.";
